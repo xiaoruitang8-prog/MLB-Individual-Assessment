@@ -304,7 +304,7 @@ with st.sidebar:
             "gpt-4o-mini (OpenAI - Fast & Cheap)",
             "gpt-4o (OpenAI - Better Quality)",
             "gemini-2.5-flash (Google - Free)",
-            "gemini-3-flash (Google - Free)"
+            "gemini-2.5-pro (Google - Free)"
         ],
         index=0,
         help="Select your preferred LLM model. You'll need to provide your own API key."
@@ -316,7 +316,7 @@ with st.sidebar:
         if "2.5-flash" in model_choice:
             selected_model = "gemini-2.5-flash"
         else:
-            selected_model = "gemini-3-flash"
+            selected_model = "gemini-2.5-pro"
     else:
         selected_provider = "openai"
         if "gpt-4o-mini" in model_choice:
