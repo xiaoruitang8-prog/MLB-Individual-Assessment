@@ -33,7 +33,7 @@ except ImportError:
 # ==================== LLM API Functions ====================
 def call_gemini(prompt: str, api_key: str, model: str = "gemini-2.5-flash", max_tokens: int = 1000) -> str:
     """Call Google Gemini API."""
-    url = f"https://generativelanguage.googleapis.com/v1/models/{model}:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
     
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -304,7 +304,7 @@ with st.sidebar:
             "gpt-4o-mini (OpenAI - Fast & Cheap)",
             "gpt-4o (OpenAI - Better Quality)",
             "gemini-2.5-flash (Google - Free)",
-            "gemini-1.5-flash (Google - Free)"
+            "gemini-3-flash (Google - Free)"
         ],
         index=0,
         help="Select your preferred LLM model. You'll need to provide your own API key."
@@ -316,7 +316,7 @@ with st.sidebar:
         if "2.5-flash" in model_choice:
             selected_model = "gemini-2.5-flash"
         else:
-            selected_model = "gemini-1.5-flash"
+            selected_model = "gemini-3-flash"
     else:
         selected_provider = "openai"
         if "gpt-4o-mini" in model_choice:
